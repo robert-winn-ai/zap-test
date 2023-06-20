@@ -2,7 +2,8 @@ import time
 from zapv2 import ZAPv2
 import datetime
 from os import getcwd
-
+import json2html
+import json
 
 target = 'https://stg.winnai.dev/'
 
@@ -37,5 +38,9 @@ source_info = 'Vulnerability Report for Winn.ai;Abhay Bhargav;API Team;{};{};v1;
 path = getcwd() + "/zap-report.json"
 zap.exportreport.generate(path, "json", sourcedetails=source_info,
                           alertseverity=alert_severity, alertdetails=alert_details, scanid=scanid)
+infoFromJson = json.loads(path)
+html_response=(json2html.convert(json = infoFromJson))
+with open("sample.html", "w") as html_file:
+    html_file.write(html_response.text)
 
 zap.core.shutdown()
