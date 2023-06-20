@@ -1,9 +1,7 @@
 name: ZAP-Test
-
 on:
   push:
     branches: [ master ]
-
 jobs:
   build:
     runs-on: ubuntu-18.04
