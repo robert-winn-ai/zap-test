@@ -2,7 +2,7 @@ import time
 from zapv2 import ZAPv2
 import datetime
 from os import getcwd
-import json2html
+from json2html import *
 import json
 
 target = 'https://stg.winnai.dev/'
