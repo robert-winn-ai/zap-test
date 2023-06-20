@@ -1,5 +1,7 @@
 import time
 from zapv2 import ZAPv2
+import datetime
+from os import getcwd
 
 
 target = 'https://stg.winnai.dev/'
@@ -25,3 +27,15 @@ print ('Scanning target %s' % target)
 scanid = zap.ascan.scan(target)
 
 print ('Scan completed')
+
+now = datetime.datetime.now().strftime("%m/%d/%Y")
+alert_severity = 't;t;t;t'  # High;Medium;Low;Info
+# CWEID;#WASCID;Description;Other Info;Solution;Reference;Request Header;Response Header;Request Body;Response Body
+alert_details = 't;t;t;t;t;t;f;f;f;f'
+source_info = 'Vulnerability Report for Winn.ai;Abhay Bhargav;API Team;{};{};v1;v1;API Scan Report'.format(
+    now, now)
+path = getcwd() + "/zap-report.json"
+zap.exportreport.generate(path, "json", sourcedetails=source_info,
+                          alertseverity=alert_severity, alertdetails=alert_details, scanid=scanid)
+
+zap.core.shutdown()
