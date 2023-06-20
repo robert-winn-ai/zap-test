@@ -38,7 +38,7 @@ active_scan_id = zap.ascan.scan(target_url, scanpolicyname='Light')
 print("active scan id: {0}".format(active_scan_id))
 
 # now we can start monitoring the spider's status
-while int(zap.ascan.status(active_scan_id)) < 100:
+while int(zap.ascan.status(active_scan_id)) < 360:
     print("Current Status of ZAP Active Scan: {0}%".format(
         zap.ascan.status(active_scan_id)))
     time.sleep(10)
