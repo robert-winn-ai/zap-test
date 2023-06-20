@@ -4,7 +4,7 @@ from zapv2 import ZAPv2
 
 target = 'https://stg.winnai.dev/'
 
-zap = ZAPv2(proxies={'http': 'http://127.0.0.1:8888', 'https': 'http://127.0.0.1:8888'})
+zap = ZAPv2(proxies={'http': 'http://127.0.0.1:8090', 'https': 'http://127.0.0.1:8090'})
 
 zap.context.import_context("/file/context")
 
