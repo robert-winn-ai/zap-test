@@ -6,15 +6,15 @@ from os import getcwd
 
 # Test Automation Part of the Script
 
-target_url = 'http://localhost:5050'
+target_url = 'https://stg.winnai.dev'
 proxies = {
     'http': 'http://127.0.0.1:8090',
     'https': 'http://127.0.0.1:8090',
 }
 
-auth_dict = {'username': 'admin', 'password': 'admin123'}
+auth_dict = {'username': 'U_SECURITY_SCAN_4RUXQJK533', 'password': 'idui6sgt68oianb3iu4dy8o61vihwrwt'}
 
-login = requests.post(target_url + '/login',
+login = requests.post(target_url + '/auth/security-test-login',
                       proxies=proxies, json=auth_dict, verify=False)
 
 
