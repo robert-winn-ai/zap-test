@@ -12,41 +12,41 @@ proxies = {
     'https': 'http://127.0.0.1:8090',
 }
 
-auth_dict = {'username': 'U_SECURITY_SCAN_4RUXQJK533', 'password': 'idui6sgt68oianb3iu4dy8o61vihwrwt'}
-
-login = requests.post(target_url + '/auth/security-test-login',
-                      proxies=proxies, json=auth_dict, verify=False)
-
-
-if login.status_code == 200:  # if login is successful
-    auth_token = login.headers['Authorization']
-    auth_header = {"Authorization": auth_token}
-
-    # now lets run some operations
-    # GET Customer by ID
-
-    get_cust_id = requests.get(
-        target_url + 'management/#/meetings', proxies=proxies, headers=auth_header, verify=False)
-    if get_cust_id.status_code == 200:
-        print("Get Customer by ID Response")
-        print(get_cust_id.json())
-        print()
-
-    post = {'id': 2}
-    fetch_customer_post = requests.post(
-        target_url + '/fetch/customer', json=post, proxies=proxies, headers=auth_header, verify=False)
-    if fetch_customer_post.status_code == 200:
-        print("Fetch Customer POST Response")
-        print(fetch_customer_post.json())
-        print()
-
-    search = {'search': 'dleon'}
-    search_customer_username = requests.post(
-        target_url + '/search', json=search, proxies=proxies, headers=auth_header, verify=False)
-    if search_customer_username.status_code == 200:
-        print("Search Customer POST Response")
-        print(search_customer_username.json())
-        print()
+# auth_dict = {'username': 'U_SECURITY_SCAN_4RUXQJK533', 'password': 'idui6sgt68oianb3iu4dy8o61vihwrwt'}
+#
+# login = requests.post(target_url + '/auth/security-test-login',
+#                       proxies=proxies, json=auth_dict, verify=False)
+#
+#
+# if login.status_code == 200:  # if login is successful
+#     auth_token = login.headers['Authorization']
+#     auth_header = {"Authorization": auth_token}
+#
+#     # now lets run some operations
+#     # GET Customer by ID
+#
+#     get_cust_id = requests.get(
+#         target_url + 'management/#/meetings', proxies=proxies, headers=auth_header, verify=False)
+#     if get_cust_id.status_code == 200:
+#         print("Get Customer by ID Response")
+#         print(get_cust_id.json())
+#         print()
+#
+#     post = {'id': 2}
+#     fetch_customer_post = requests.post(
+#         target_url + '/fetch/customer', json=post, proxies=proxies, headers=auth_header, verify=False)
+#     if fetch_customer_post.status_code == 200:
+#         print("Fetch Customer POST Response")
+#         print(fetch_customer_post.json())
+#         print()
+#
+#     search = {'search': 'dleon'}
+#     search_customer_username = requests.post(
+#         target_url + '/search', json=search, proxies=proxies, headers=auth_header, verify=False)
+#     if search_customer_username.status_code == 200:
+#         print("Search Customer POST Response")
+#         print(search_customer_username.json())
+#         print()
 
 
 # ZAP Operations
