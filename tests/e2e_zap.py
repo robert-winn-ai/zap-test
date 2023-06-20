@@ -39,18 +39,5 @@ source_info = 'Vulnerability Report for Winn.ai;Abhay Bhargav;API Team;{};{};v1;
 path = getcwd() + "/zap-report.json"
 zap.exportreport.generate(path, "json", sourcedetails=source_info,
                           alertseverity=alert_severity, alertdetails=alert_details, scanid=scanid)
-infoFromJson = json.loads(path)
 
-def create(JsonResponse):
-    jsonFile = 'testFile.json'
-    with open(jsonFile, 'w') as json_data:
-        json.dump(JsonResponse, json_data)
-    with open('testFile.json') as json_data:
-        infoFromJson = json.load(json_data)
-        scanOutput = json2html.convert(json=infoFromJson)
-        htmlReportFile = 'Report.html'
-        with open(htmlReportFile, 'w') as htmlfile:
-            htmlfile.write(str(scanOutput))
-JsonResponse=json2html.convert(json = infoFromJson)
-create(JsonResponse)
 zap.core.shutdown()
