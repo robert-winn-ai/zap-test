@@ -46,7 +46,8 @@ jobs:
           time: '20s'
       - name: Run Test Automation with ZAP
         run: |
-          pip install -U pip setuptools && pip install -r /apps/requirements.txt
+          ls
+          pip install -U pip setuptools && pip install -r ./apps/requirements.txt
           cd ./tests/
           python e2e_zap.py
       - name: "Upload Report"
