@@ -47,7 +47,7 @@ jobs:
       - name: Run Test Automation with ZAP
         run: |
           cd ./tests/
-          pip install -U pip setuptools && pip install -r requirements.txt
+          pip install -r requirements.txt
           python e2e_zap.py
       - name: "Upload Report"
         uses: actions/upload-artifact@v2
